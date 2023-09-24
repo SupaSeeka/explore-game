@@ -1,1 +1,45 @@
 <!DOCTYPE html>
+
+<style>
+#MC {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    transform: scaleX(1) /* Initial scale */
+}
+</style>
+
+<main>
+    <img id="MC" src="assets/character1big.png" width="100" height="220">
+</main>
+
+<script>
+let currentYPos = 5
+let currentXPos = 5
+let character = document.getElementById('MC')
+
+addEventListener('keydown', (ev) => {
+    if (ev.key === "w") {
+        currentYPos -= 20 // Move the character up
+        character.style.top = `${currentYPos}px`
+    }
+
+    if (ev.key === "s") {
+        currentYPos += 20 // Move the character down
+        character.style.top = `${currentYPos}px`
+    }
+
+    if (ev.key === "d") {
+        currentXPos += 20 // Move the character right
+        character.style.left = `${currentXPos}px`
+        character.style.transform = "scaleX(-1)" // Reset the scale
+    }
+
+    if (ev.key === "a") {
+        currentXPos -= 20 // Move the character left
+        character.style.left = `${currentXPos}px`
+        character.style.transform = "scaleX(1)" // Flip the character horizontally
+    }
+})
+
+</script>
